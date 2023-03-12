@@ -24,14 +24,7 @@ let arr2 = arrInput2.innerHTML.split(", ");
 
 // second index of
 button2.onclick = function () {
-  let index = arr2.indexOf(input2.value);
-  for (let i = index + 1; i < arr2.length; i++) {
-    if (arr2[i] == arr2[index]) {
-      output2.value = i;
-      return;
-    }
-  }
-  output2.value = -1;
+  output2.value = arr2.indexOf(input2.value, arr2.indexOf(input2.value) + 1);
 };
 
 // to read values from arrInput
@@ -110,7 +103,7 @@ let a1 = arrInput5[0].innerHTML.split(", "),
 const union = (x, y) => x.join(", ") + ", " + y.join(", ");
 
 button5.onclick = function () {
-  output5.value = union(a1, a2);
+  output5.value = [...new Set(union(a1, a2).split(", "))];
 };
 
 // to read values from arrInput
